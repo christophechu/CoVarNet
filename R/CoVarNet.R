@@ -237,8 +237,8 @@ cm_network<-function(NMFres,Corres,...){
   w <- basis(NMFres)
   if(is.null(colnames(w))){
     colnames(w) <- sprintf("CM%02d", 1:ncol(w))
-    rownames(coef(NMF_K12))<- sprintf("CM%02d", 1:ncol(w))
-    colnames(basis(NMF_K12))<- sprintf("CM%02d", 1:ncol(w))
+    rownames(coef(NMFres))<- sprintf("CM%02d", 1:ncol(w))
+    colnames(basis(NMFres))<- sprintf("CM%02d", 1:ncol(w))
   }
 
   sorted_colnames <- order(colnames(w))
