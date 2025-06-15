@@ -298,8 +298,6 @@ gr.weight_all<-function(nmf_res){
   ComplexHeatmap::draw(ht1)
 }
 
-
-
 #' Visualize cell subsets with the highest weights in each CM
 #' @param nmf_res The result of function nmf, which includes the feature matrix.
 #' @param num The number of cell subsets with the highest weights in each CM.
@@ -332,7 +330,7 @@ gr.weight_top<-function(nmf_res,...){
     as.data.frame()
 
   n_plot <- length(unique(w_df$cm))
-  ncol <- 5
+  ncol <- 4
   nrow <- ceiling(n_plot / ncol)
 
   ggplot(w_df, aes(x = tidytext::reorder_within(subCluster, weight, cm), y = weight, fill = cm)) +
