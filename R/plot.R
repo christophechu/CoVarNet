@@ -8,8 +8,6 @@ usethis::use_package(package = "tidytext", type = "Imports")
 usethis::use_package(package = "dendextend", type = "Imports")
 usethis::use_package(package = "ggplot2", type = "Depends")
 
-
-
 #' Visualize the network of each CM
 #'
 #' @param each The result of function "cm_network".
@@ -146,8 +144,6 @@ gr.igraph_global<-function(global,...){
   ComplexHeatmap::draw(lgd, x = unit(0.1, "npc"), y = unit(0.05, "npc"))
 }
 
-
-
 #' Visualizing the distribution of CMs across samples
 #' @param nmf_res The result of function nmf which includes the coefficient matrix.
 #' @param meta The groupings of each sample(not required). If provided, this file should contain at least two columns:"sampleID" and the groupings category.
@@ -276,8 +272,6 @@ gr.distribution<-function(nmf_res,...){
 }
 
 
-
-
 #' Visualize the weights of all cell subsets in CMs
 #' @param nmf_res The result of function nmf, which includes the feature matrix.
 #' @return A heatmap displaying the weights of all cell subsets within each cellular module.
@@ -363,8 +357,6 @@ gr.weight_top<-function(nmf_res,...){
       aspect.ratio = 1.6 / 1
     )
 }
-
-
 
 
 #' Calculate the spatial proximity between cell subset pairs within several specified cellular modules.
