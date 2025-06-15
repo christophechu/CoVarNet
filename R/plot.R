@@ -35,7 +35,13 @@ gr.igraph_each<-function(each,...){
 
   # vertex attr
   V(graph)$majorCluster <- meta_sc[V(graph)$name, "majorCluster"]
-  colors <- RColorBrewer::brewer.pal(length(unique(V(graph)$majorCluster)), "Set3")
+  uniq_clusters <- unique(V(graph)$majorCluster)
+  k <- length(uniq_clusters)
+  palette <- Polychrome::createPalette(k, seedcolors = c(
+    "#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E",
+    "#FDB462", "#B3DE69", "#FCCDE5", "#BC80BD", "#80B1D3"
+  ))
+  colors <- setNames(palette, uniq_clusters)
   names(colors)=unique(V(graph)$majorCluster)
   V(graph)$frame.color <- V(graph)$color <- colors[V(graph)$majorCluster]
 
