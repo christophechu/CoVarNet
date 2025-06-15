@@ -468,11 +468,6 @@ gr.proximity<-function(coords,st_fq,ref,cm_select){
 }
 
 
-
-
-
-
-
 #' Scatter plots in PHATE basis
 #' @param data An AnnData object after PHATE reduction.
 #' @param feature Input vector of features.
