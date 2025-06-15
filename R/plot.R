@@ -331,9 +331,10 @@ gr.weight_top<-function(nmf_res,...){
   colnames(w_df) <- c("subCluster", "cm", "weight")
 
   w_df <- w_df %>%
+    filter(weight > 0) %>% 
     group_by(cm) %>%
-    arrange(desc(weight), .by_group = TRUE) %>%
-    top_n(num, weight) %>%
+    slice_max(order_by = weight, n = num, with_ties = FALSE) %>% 
+    ungroup() %>%
     as.data.frame()
 
   n_plot <- length(unique(w_df$cm))
