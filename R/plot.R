@@ -336,11 +336,15 @@ gr.weight_top<-function(nmf_res,...){
     top_n(num, weight) %>%
     as.data.frame()
 
+  n_plot <- length(unique(w_df$cm))
+  ncol <- 5
+  nrow <- ceiling(n_plot / ncol)
+
   ggplot(w_df, aes(x = tidytext::reorder_within(subCluster, weight, cm), y = weight, fill = cm)) +
     geom_col() +
     # scale_fill_manual(values = color$CM) +
     # facet_grid(cm ~ ., scales = "free") +
-    facet_wrap(~cm, scales = "free", nrow = 3) +
+    facet_wrap(~cm, scales = "free", ncol = ncol) +
     coord_flip() +
     # coord_fixed(ratio = 10 / 1) +
     labs(x = "", y = "Weight") +
