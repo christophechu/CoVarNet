@@ -299,7 +299,7 @@ cm_network<-function(NMFres,Corres,...){
       graph,
       vids = intersect(V(graph)$name, weight$subCluster[weight$cm == cm])
     )
-    sub_graph <- delete.vertices(sub_graph, V(sub_graph)[degree(sub_graph) == 0])
+    sub_graph <- delete.vertices(sub_graph, V(sub_graph)[igraph::degree(sub_graph) == 0])
     if(length(V(sub_graph))!=0){
       tmp1 <- data.frame(cm = cm, subCluster = V(sub_graph)$name)
       node_each <- rbind(node_each, tmp1)
