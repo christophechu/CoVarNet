@@ -57,7 +57,11 @@ gr.igraph_each<-function(each,...){
   E(graph)$color <- col_fun(E(graph)$spe)
   E(graph)$width <- 1
 
-  par(mfrow = c(2, 6), mar = c(0, 0, 0, 0) + 0.5) # 3，4
+  n_plot <- length(unique(node$cm))
+  ncol <- 5
+  nrow <- ceiling(n_plot / ncol)
+  par(mfrow = c(nrow, ncol), mar = c(0, 0, 0, 0) + 0.5)
+  
   for (cm in unique(node$cm)) {
     sub_graph <- subgraph(
       graph,
