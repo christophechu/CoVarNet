@@ -333,7 +333,7 @@ gr.weight_top<-function(nmf_res,...){
   ncol <- 4
   nrow <- ceiling(n_plot / ncol)
 
-  ggplot(w_df, aes(x = tidytext::reorder_within(subCluster, weight, cm), y = weight, fill = cm)) +
+  p <- ggplot(w_df, aes(x = tidytext::reorder_within(subCluster, weight, cm), y = weight, fill = cm)) +
     geom_col() +
     # scale_fill_manual(values = color$CM) +
     # facet_grid(cm ~ ., scales = "free") +
@@ -354,6 +354,7 @@ gr.weight_top<-function(nmf_res,...){
       strip.background = element_blank(),
       aspect.ratio = 1.6 / 1
     )
+  print(p)
 }
 
 
