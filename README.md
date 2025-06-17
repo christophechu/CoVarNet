@@ -4,7 +4,7 @@ CoVarNet is a computational framework aiming to unravel the coordination among m
 
 ## **Installation**
 ```
-devtools::install_github(repo = "https://github.com/QiangShiPKU/CoVarNet")
+devtools::install_github(repo = "https://github.com/christophechu/CoVarNet")
 library(CoVarNet)
 ```
 
